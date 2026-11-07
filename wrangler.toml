@@ -1,0 +1,31 @@
+name = "figura-pearthzz"
+main = "src/index.ts"
+compatibility_date = "2025-09-01"
+
+# --- Custom domain (ตั้งหลังมี domain จริง) -------------------------------
+# Figura ต้องใช้ hostname จริงผ่าน HTTPS เช่น figura.pearthzz.xyz
+# routes = [{ pattern = "figura.<your-domain>", custom_domain = true }]
+
+[[durable_objects.bindings]]
+name = "HUB"
+class_name = "Hub"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Hub"]
+
+[[r2_buckets]]
+binding = "AVATARS"
+bucket_name = "figura-pearthzz-avatars"
+
+[vars]
+MAX_AVATAR_SIZE = "10485760"   # 10 MB
+MAX_AVATARS = "3"              # จำนวน avatar ต่อผู้เล่น
+PING_SIZE = "1024"             # bytes ต่อ ping
+PING_RATE = "32"               # pings ต่อวินาที
+RATE_UPLOAD = "4"
+RATE_DOWNLOAD = "64"
+TOKEN_TTL_HOURS = "24"
+MOTD = "figura.pearthzz backend"
+UPSTREAM_HOST = "figura.moonlight-devs.org"  # proxy เฉพาะ /api/assets
+ALLOWED_UUIDS = ""             # เว้นว่าง = ทุกคนใช้ได้, หรือ "uuid1,uuid2" = whitelist
