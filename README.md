@@ -51,3 +51,4 @@ node scripts/smoke.mjs          # 17 checks: auth, 10MB limit, equip, download, 
 - No per-user daily upload quota yet; combine with `ALLOWED_UUIDS` if you don't want strangers filling R2.
 - Players on this backend only see avatars of others on the same backend.
 - Built from the Figura client source (`backend2/*`); protocol may change in future Figura versions.
+
